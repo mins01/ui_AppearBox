@@ -43,7 +43,7 @@
 	
 	<!-- //meta og -->
 
-	
+	<!-- https://daneden.github.io/animate.css/ -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	
 	<script src="TimerChian.js"></script>
@@ -85,10 +85,12 @@
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide').hide()">hide</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide 2000ms').hide(2000)">hide 2000ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).hide(2000)">show 0ms , hide 2000ms</button>
-		<div  id="box1" class="appear-box on " style="box-sizing:content-box;border:1px dashed #000; width:300px;height:300px;">
+		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).addFn(function(){ab.contentText('HELLO')},1000).addFn(function(){ab.contentText('BYE')},1000).hide(0)">show 0ms ,.contentText('HELLO'),.contentText('BYE'), hide 0ms</button>
+
+		<div  id="box1" class="appear-box on " style="width:300px;height:300px;">
 			<div class="appear-box-fence">
 				<div class="appear-box-content">
-					asdasd
+					CONTENT
 				</div>
 			</div>	
 		</div>

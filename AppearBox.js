@@ -14,31 +14,43 @@ var AppearBox = (function(){
 		$(this.target).find('.appear-box-content').text(text)
 		return this;
 	}
+	prt.showAnmation = 'bounceIn';
 	prt.show = function(delay){
 		if(delay==null) delay = 0;
 		var thisC = this;
 		
 		this.tc.push(function(){
 			$(thisC.target).addClass('on');
-			$(thisC.target).addClass('animated bounceIn');	
+			$(thisC.target).addClass('animated '+thisC.showAnmation);
 		},delay)
 		.push(function(){
-			$(thisC.target).removeClass('animated bounceIn');	
+			$(thisC.target).removeClass('animated '+thisC.showAnmation);
 		},1000).start()
 		
 		return this
-	}
+	}	
+	prt.hideAnmation = 'bounceOut';
 	prt.hide = function(delay){
 		if(delay==null) delay = 0;
 		var thisC = this;
 		this.tc.push(function(){
-			$(thisC.target).addClass('animated bounceOut');	
+			$(thisC.target).addClass('animated '+thisC.hideAnmation);	
 		},delay)
 		.push(function(){
-			$(thisC.target).removeClass('animated bounceOut');	
+			$(thisC.target).removeClass('animated '+thisC.hideAnmation);
 			$(thisC.target).removeClass('on');
-
+			
 		},1000).start();
+		return this
+	}
+	prt.addFn = function(fn,delay){
+		if(delay==null) delay = 0;
+		var thisC = this;
+		
+		this.tc.push(function(){
+			fn()
+		},delay)
+		.start()
 		return this
 	}
 	

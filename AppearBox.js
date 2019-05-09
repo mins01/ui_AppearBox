@@ -9,11 +9,11 @@ var AppearBox = (function(){
 	prt.content = null;
 	prt.tc = null;
 	prt.contentHtml = function(html){
-		this.content.innerHTML = html;
+		if(this.content) this.content.innerHTML = html;
 		return this;
 	}
 	prt.contentText = function(text){
-		this.content.innerText = text;
+		if(this.content) this.content.innerText = text;
 		return this;
 	}
 	prt.showAnmation = 'bounceIn';

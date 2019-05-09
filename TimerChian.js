@@ -1,4 +1,11 @@
+/**
+ * TimerChain
+ * http://mins01.com
+ * https://github.com/mins01/js_TimerChain
+ * Date : 2019-05-09
+ */
 var TimerChain = (function(){
+	"use strict";
 	var TimerChain = function(){	
 	};
 	TimerChain.prototype = Object.create(Array.prototype,{

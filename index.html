@@ -99,16 +99,16 @@
 		</ul>
 		<h2>methods</h2>
 		<ul>
-			<li>.contentHtml(htmlString,delay)<br />
+			<li>.contentHtml(htmlString[,delay=0])<br />
 				
 			</li>
-			<li>.contentText(text,delay)<br />
+			<li>.contentText(text[,delay=0])<br />
 				
 			</li>
-			<li>.show(delay)<br />
+			<li>.show([delay=0,[showAnmation=this.showAnmation]])<br />
 				보이기 동작 함수 추가
 			</li>
-			<li>.hide(delay)<br />
+			<li>.hide([delay=0,[hideAnmation=this.hideAnmation]])<br />
 				감추기 동작 함수 추가
 			</li>
 			<li>.add(function,delay)<br />
@@ -143,8 +143,10 @@
 		</div>	
 		
 		<button class="btn btn-info m-1" onclick="ab.contentText('show').show()">show</button>
+		<button class="btn btn-info m-1" onclick="ab.contentText('show').show(0,'bounceInLeft')">show bounceInLeft</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 2000ms').show(2000)">show 2000ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide').hide()">hide</button>
+		<button class="btn btn-info m-1" onclick="ab.contentText('hide').hide(0,'bounceOutLeft')">show bounceOutLeft</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide 2000ms').hide(2000)">hide 2000ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show and hide').show(0).hide(2000)">show and hide</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('Ready',0).contentText('3',1000).contentText('2',1000).contentText('1',1000).contentText('Go!',1000)">contentText</button>

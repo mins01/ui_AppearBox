@@ -33,34 +33,36 @@ var AppearBox = (function(){
 		return this;
 	}
 	prt.showAnmation = 'bounceIn';
-	prt.show = function(delay){
+	prt.show = function(delay,showAnmation){
 		if(delay==null) delay = 0;
+		if(showAnmation==null) showAnmation = this.showAnmation;
 		var thisC = this;
 		
 		this.add(function(){
 			thisC.box.classList.add('on');
 			thisC.fence.classList.add('animated');
-			thisC.fence.classList.add(thisC.showAnmation);
+			thisC.fence.classList.add(showAnmation);
 		},delay)
 		.add(function(){
 			thisC.fence.classList.remove('animated');
-			thisC.fence.classList.remove(thisC.showAnmation);
+			thisC.fence.classList.remove(showAnmation);
 		},1000);
 		
 		return this
 	}	
 	prt.hideAnmation = 'bounceOut';
-	prt.hide = function(delay){
+	prt.hide = function(delay,hideAnmation){
 		if(delay==null) delay = 0;
+		if(hideAnmation==null) hideAnmation = this.hideAnmation;
 		var thisC = this;
 		this.add(function(){
 			thisC.fence.classList.add('animated');
-			thisC.fence.classList.add(thisC.hideAnmation);
+			thisC.fence.classList.add(hideAnmation);
 		},delay)
 		.add(function(){
 			thisC.box.classList.remove('on');
 			thisC.fence.classList.remove('animated');
-			thisC.fence.classList.remove(thisC.hideAnmation);			
+			thisC.fence.classList.remove(hideAnmation);			
 		},1000)
 		return this
 	}

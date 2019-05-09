@@ -122,6 +122,10 @@
 		<ul>
 			<li>.showAnmation = 'bounceIn'<br />보일 때의 애니메이션 타입</li>
 			<li>.showAnmation = 'bounceOut'<br />감출 때의 애니메이션 타입</li>
+			<li>.box <br />최 외각 node. class on 을 추가하여 보이고, 안보이고를 결정. class = appear-box</li>
+			<li>.fence<br />애니메이션 적용 node. class = appear-box-fence</li>
+			<li>.content<br />.contentText() , contentHtml() 에 적용하는 node. class = appear-box-content</li>
+			<li>.tc<br />TimerChain</li>
 		</ul>
 		<h2>etc</h2>
 		<ul>
@@ -130,15 +134,13 @@
 		
 		
 		<hr />
-		<div style="height:300px;overflow:hidden;">
-			<div  id="box1" class="appear-box on " style="width:300px;height:300px;">
-				<div class="appear-box-fence appear-box-item-center">
-					<div class="appear-box-content">
-						CONTENT
-					</div>
-				</div>	
+		<div  id="box1" class="appear-box on " style="width:300px;height:300px;">
+			<div class="appear-box-fence appear-box-item-center">
+				<div class="appear-box-content">
+					CONTENT
+				</div>
 			</div>	
-		</div>
+		</div>	
 		
 		<button class="btn btn-info m-1" onclick="ab.contentText('show').show()">show</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 2000ms').show(2000)">show 2000ms</button>
@@ -154,7 +156,7 @@
 					<span class="input-group-text" >showAnmation</span>
 				</div>
 				<select class="form-control" onchange="ab.showAnmation=this.value">
-					<option value="">NONE</option>
+					<option value="NONE">NONE</option>
 		
 					<optgroup label="Attention Seekers">
 						<option value="bounce">bounce</option>
@@ -282,7 +284,7 @@
 					<span class="input-group-text" >hideAnmation</span>
 				</div>
 				<select class="form-control" onchange="ab.hideAnmation=this.value">
-					<option value="">NONE</option>
+					<option value="NONE">NONE</option>
 		
 					<optgroup label="Attention Seekers">
 						<option value="bounce">bounce</option>

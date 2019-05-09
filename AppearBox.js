@@ -1,12 +1,14 @@
 var AppearBox = (function(){
-	var AppearBox = function(target){
-		this.target = target;
-		this.content = target.querySelector('.appear-box-content');
+	var AppearBox = function(box){
+		this.box = box;
+		this.content = box.querySelector('.appear-box-content');
+		this.fence = box.querySelector('.appear-box-fence');
 		this.tc = new TimerChain();
 	};
 	var prt = AppearBox.prototype;
-	prt.target = null;
+	prt.box = null;
 	prt.content = null;
+	prt.fence = null;
 	prt.tc = null;
 	prt.contentHtml = function(html){
 		if(this.content) this.content.innerHTML = html;
@@ -22,15 +24,13 @@ var AppearBox = (function(){
 		var thisC = this;
 		
 		this.tc.push(function(){
-			thisC.target.classList.add('on');
-			thisC.target.classList.add('animated');
-			thisC.target.classList.add(thisC.showAnmation);
-			// $(thisC.target).addClass('on');
-			// $(thisC.target).addClass('animated '+thisC.showAnmation);
+			thisC.box.classList.add('on');
+			thisC.fence.classList.add('animated');
+			thisC.fence.classList.add(thisC.showAnmation);
 		},delay)
 		.push(function(){
-			thisC.target.classList.remove('animated');
-			thisC.target.classList.remove(thisC.showAnmation);
+			thisC.fence.classList.remove('animated');
+			thisC.fence.classList.remove(thisC.showAnmation);
 		},1000).start()
 		
 		return this
@@ -40,13 +40,13 @@ var AppearBox = (function(){
 		if(delay==null) delay = 0;
 		var thisC = this;
 		this.tc.push(function(){
-			thisC.target.classList.add('animated');
-			thisC.target.classList.add(thisC.hideAnmation);
+			thisC.fence.classList.add('animated');
+			thisC.fence.classList.add(thisC.hideAnmation);
 		},delay)
 		.push(function(){
-			thisC.target.classList.remove('on');
-			thisC.target.classList.remove('animated');
-			thisC.target.classList.remove(thisC.hideAnmation);			
+			thisC.box.classList.remove('on');
+			thisC.fence.classList.remove('animated');
+			thisC.fence.classList.remove(thisC.hideAnmation);			
 		},1000).start();
 		return this
 	}

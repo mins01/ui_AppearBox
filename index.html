@@ -21,13 +21,13 @@
 	</script> 
 	
 	<!-- jquery 관련 -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>  
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>   -->
 
 
 	<!-- 부트스트랩 4 : IE8지원안됨! -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous"> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script> 
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script> -->
 	<!-- vue.js -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 	
@@ -51,9 +51,9 @@
 	
 	<script>
 	var ab 
-	$(function(){
-		ab = new AppearBox($("#box1").get(0))
-	})
+	window.addEventListener('load',function(){
+		ab = new AppearBox(document.getElementById('box1'));
+	});
 	</script>
 	<style>
 	.appear-box{
@@ -85,7 +85,8 @@
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide').hide()">hide</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide 2000ms').hide(2000)">hide 2000ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).hide(2000)">show 0ms , hide 2000ms</button>
-		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).addFn(function(){ab.contentText('HELLO')},1000).addFn(function(){ab.contentText('BYE')},1000).hide(0)">show 0ms ,.contentText('HELLO'),.contentText('BYE'), hide 0ms</button>
+		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).add(function(){ab.contentText('HELLO')},1000).add(function(){ab.contentText('BYE')},1000).hide(0)">show 0ms ,.contentText('HELLO'),.contentText('BYE'), hide 0ms</button>
+		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).add(function(){ab.contentText('HELLO')},1000).clear().show(0).add(function(){ab.contentText('BYE')},1000).hide(0)">ab.contentText('show 0ms , hide 2000ms').show(0).add(function(){ab.contentText('HELLO')},1000).clear().show(0).add(function(){ab.contentText('BYE')},1000).hide(0)</button>
 
 		<div  id="box1" class="appear-box on " style="width:300px;height:300px;">
 			<div class="appear-box-fence">

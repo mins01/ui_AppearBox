@@ -1,17 +1,19 @@
 var AppearBox = (function(){
 	var AppearBox = function(target){
 		this.target = target;
+		this.content = target.querySelector('.appear-box-content');
 		this.tc = new TimerChain();
 	};
 	var prt = AppearBox.prototype;
 	prt.target = null;
+	prt.content = null;
 	prt.tc = null;
 	prt.contentHtml = function(html){
-		$(this.target).find('.appear-box-content').html(html)
+		this.content.innerHTML = html;
 		return this;
 	}
 	prt.contentText = function(text){
-		$(this.target).find('.appear-box-content').text(text)
+		this.content.innerText = text;
 		return this;
 	}
 	prt.showAnmation = 'bounceIn';
@@ -20,11 +22,15 @@ var AppearBox = (function(){
 		var thisC = this;
 		
 		this.tc.push(function(){
-			$(thisC.target).addClass('on');
-			$(thisC.target).addClass('animated '+thisC.showAnmation);
+			thisC.target.classList.add('on');
+			thisC.target.classList.add('animated');
+			thisC.target.classList.add(thisC.showAnmation);
+			// $(thisC.target).addClass('on');
+			// $(thisC.target).addClass('animated '+thisC.showAnmation);
 		},delay)
 		.push(function(){
-			$(thisC.target).removeClass('animated '+thisC.showAnmation);
+			thisC.target.classList.remove('animated');
+			thisC.target.classList.remove(thisC.showAnmation);
 		},1000).start()
 		
 		return this
@@ -34,16 +40,17 @@ var AppearBox = (function(){
 		if(delay==null) delay = 0;
 		var thisC = this;
 		this.tc.push(function(){
-			$(thisC.target).addClass('animated '+thisC.hideAnmation);	
+			thisC.target.classList.add('animated');
+			thisC.target.classList.add(thisC.hideAnmation);
 		},delay)
 		.push(function(){
-			$(thisC.target).removeClass('animated '+thisC.hideAnmation);
-			$(thisC.target).removeClass('on');
-			
+			thisC.target.classList.remove('on');
+			thisC.target.classList.remove('animated');
+			thisC.target.classList.remove(thisC.hideAnmation);			
 		},1000).start();
 		return this
 	}
-	prt.addFn = function(fn,delay){
+	prt.add = function(fn,delay){
 		if(delay==null) delay = 0;
 		var thisC = this;
 		
@@ -51,6 +58,10 @@ var AppearBox = (function(){
 			fn()
 		},delay)
 		.start()
+		return this
+	}
+	prt.clear = function(){
+		this.tc.clear();
 		return this
 	}
 	

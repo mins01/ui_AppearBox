@@ -1,3 +1,9 @@
+/**
+ * AppearBox
+ * http://mins01.com
+ * https://github.com/mins01/ui_AppearBox
+ * Date : 2019-05-09
+ */
 var AppearBox = (function(){
 	var AppearBox = function(box){
 		this.box = box;

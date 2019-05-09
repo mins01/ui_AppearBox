@@ -37,15 +37,15 @@ var AppearBox = (function(){
 		if(delay==null) delay = 0;
 		var thisC = this;
 		
-		this.tc.push(function(){
+		this.add(function(){
 			thisC.box.classList.add('on');
 			thisC.fence.classList.add('animated');
 			thisC.fence.classList.add(thisC.showAnmation);
 		},delay)
-		.push(function(){
+		.add(function(){
 			thisC.fence.classList.remove('animated');
 			thisC.fence.classList.remove(thisC.showAnmation);
-		},1000).start()
+		},1000);
 		
 		return this
 	}	
@@ -53,15 +53,15 @@ var AppearBox = (function(){
 	prt.hide = function(delay){
 		if(delay==null) delay = 0;
 		var thisC = this;
-		this.tc.push(function(){
+		this.add(function(){
 			thisC.fence.classList.add('animated');
 			thisC.fence.classList.add(thisC.hideAnmation);
 		},delay)
-		.push(function(){
+		.add(function(){
 			thisC.box.classList.remove('on');
 			thisC.fence.classList.remove('animated');
 			thisC.fence.classList.remove(thisC.hideAnmation);			
-		},1000).start();
+		},1000)
 		return this
 	}
 	prt.add = function(fn,delay){

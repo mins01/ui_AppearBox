@@ -84,6 +84,10 @@ var AppearBox = (function(){
 		this.tc.clear();
 		return this
 	}
+	prt.stop = function(){
+		this.tc.stop();
+		return this
+	}
 	
 	return AppearBox;
 })()

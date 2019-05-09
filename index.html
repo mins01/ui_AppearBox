@@ -99,10 +99,10 @@
 		</ul>
 		<h2>methods</h2>
 		<ul>
-			<li>.contentHtml(htmlString)<br />
+			<li>.contentHtml(htmlString,delay)<br />
 				
 			</li>
-			<li>.contentText(text)<br />
+			<li>.contentText(text,delay)<br />
 				
 			</li>
 			<li>.show(delay)<br />
@@ -146,6 +146,7 @@
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 2000ms').show(2000)">show 2000ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide').hide()">hide</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('hide 2000ms').hide(2000)">hide 2000ms</button>
+		<button class="btn btn-info m-1" onclick="ab.contentText('Ready',0).contentText('3',1000).contentText('2',1000).contentText('1',1000).contentText('Go!',1000)">ab.contentText('Ready',0).contentText('3',1000).contentText('2',1000).contentText('1',1000).contentText('Go!',1000)</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).hide(2000)">show 0ms , hide 2000ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).add(function(){ab.contentText('HELLO')},1000).add(function(){ab.contentText('BYE')},1000).hide(0)">show 0ms ,.contentText('HELLO'),.contentText('BYE'), hide 0ms</button>
 		<button class="btn btn-info m-1" onclick="ab.contentText('show 0ms , hide 2000ms').show(0).add(function(){ab.contentText('HELLO')},1000).clear().show(0).add(function(){ab.contentText('BYE')},1000).hide(0)">ab.contentText('show 0ms , hide 2000ms').show(0).add(function(){ab.contentText('HELLO')},1000).clear().show(0).add(function(){ab.contentText('BYE')},1000).hide(0)</button>

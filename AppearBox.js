@@ -16,12 +16,20 @@ var AppearBox = (function(){
 	prt.content = null;
 	prt.fence = null;
 	prt.tc = null;
-	prt.contentHtml = function(html){
-		if(this.content) this.content.innerHTML = html;
+	prt.contentHtml = function(html,delay){
+		if(delay==null) delay = 0;
+		var thisC = this;
+		this.add(function(){
+			if(thisC.content) thisC.content.innerHTML = html;	
+		},delay)
 		return this;
 	}
-	prt.contentText = function(text){
-		if(this.content) this.content.innerText = text;
+	prt.contentText = function(text,delay){
+		if(delay==null) delay = 0;
+		var thisC = this;
+		this.add(function(){
+			if(thisC.content) thisC.content.innerText = text;	
+		},delay)
 		return this;
 	}
 	prt.showAnmation = 'bounceIn';

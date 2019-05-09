@@ -72,9 +72,11 @@ var AppearBox = (function(){
 		if(delay==-1){
 			fn();
 		}else{
-			this.tc.push(function(){
-				fn()
-			},delay)
+			this.tc.push(function(fn){
+				return function(){
+						fn()
+				}
+			}(fn),delay)
 			.start()	
 		}
 		

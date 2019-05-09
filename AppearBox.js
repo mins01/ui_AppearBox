@@ -69,11 +69,15 @@ var AppearBox = (function(){
 	prt.add = function(fn,delay){
 		if(delay==null) delay = 0;
 		var thisC = this;
+		if(delay==-1){
+			fn();
+		}else{
+			this.tc.push(function(){
+				fn()
+			},delay)
+			.start()	
+		}
 		
-		this.tc.push(function(){
-			fn()
-		},delay)
-		.start()
 		return this
 	}
 	prt.clear = function(){
